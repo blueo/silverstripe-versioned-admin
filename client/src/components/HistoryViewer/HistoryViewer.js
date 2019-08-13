@@ -16,7 +16,7 @@ import {
 import { versionType } from 'types/versionType';
 import { compareType } from 'types/compareType';
 import classNames from 'classnames';
-import ResizeAware from 'react-resize-aware';
+import ResizeAware from 'components/ResizeAware/ResizeAware';
 import * as viewModeActions from 'state/viewMode/ViewModeActions';
 import PropTypes from 'prop-types';
 
@@ -320,7 +320,7 @@ class HistoryViewer extends Component {
    */
   renderVersionList() {
     const {
-      isPreviewable,
+      isInGridField,
       ListComponent,
       CompareWarningComponent,
       compare,
@@ -332,7 +332,7 @@ class HistoryViewer extends Component {
       <div className={this.getContainerClasses()}>
         <CompareWarningComponent />
 
-        <div className={isPreviewable ? 'panel panel--padded panel--scrollable' : ''}>
+        <div className={isInGridField ? '' : 'panel panel--padded panel--scrollable'}>
           {this.renderComparisonSelectionList()}
           <ListComponent
             versions={this.getVersions()}
